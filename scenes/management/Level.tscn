@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://resources/normal_decoration_tile.tres" type="TileSet" id=1]
+[ext_resource path="res://resources/small_decoration_tile.tres" type="TileSet" id=2]
+[ext_resource path="res://resources/floor.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/env/background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/env/Mascara.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=6]
+
+[node name="Level" type="Node2D"]
+
+[node name="LevelDesign" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMap" parent="LevelDesign"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 1, 262146, 0, 1, 262147, 0, 2, 262150, 0, 0, 262151, 0, 1, 262152, 0, 1, 262153, 0, 1, 262154, 0, 1, 262155, 0, 1, 262156, 0, 1, 262157, 0, 1, 262158, 0, 1, 262159, 0, 1, 262160, 0, 1, 262161, 0, 1, 262162, 0, 2, 327680, 0, 131072, 327681, 0, 131073, 327682, 0, 131073, 327683, 0, 131074, 327686, 0, 131072, 327687, 0, 131073, 327688, 0, 131073, 327689, 0, 131073, 327690, 0, 131073, 327691, 0, 131073, 327692, 0, 131073, 327693, 0, 131073, 327694, 0, 131073, 327695, 0, 131073, 327696, 0, 131073, 327697, 0, 131073, 327698, 0, 131074, 458756, 0, 0, 458757, 0, 2, 524292, 0, 65536, 524293, 0, 65538, 589828, 0, 131072, 589829, 0, 131074 )
+
+[node name="NormalDecorationTile" type="TileMap" parent="LevelDesign"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 131090, 2, 0, 196608, 0, 0, 196609, 0, 0, 196614, 0, 0, 196615, 0, 0, 196624, 5, 0, 327685, 2, 0, 393220, 4, 0, 393221, 4, 0 )
+
+[node name="SmallDecorationTile" type="TileMap" parent="LevelDesign"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 458758, 1, 0, 458759, 1, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 851977, 1, 0, 851978, 1, 0 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="Mascara" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 17, 13 )

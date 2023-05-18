@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://resources/normal_decoration_tile.tres" type="TileSet" id=1]
 [ext_resource path="res://resources/small_decoration_tile.tres" type="TileSet" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://scenes/env/background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/env/Mascara.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_hdr_threshold = 1.5
 
 [node name="Level" type="Node2D"]
 
@@ -32,7 +37,9 @@ tile_data = PoolIntArray( 458758, 1, 0, 458759, 1, 0, 458764, 0, 0, 458765, 0, 0
 [node name="Background" parent="." instance=ExtResource( 4 )]
 
 [node name="Mascara" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 17, 13 )
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

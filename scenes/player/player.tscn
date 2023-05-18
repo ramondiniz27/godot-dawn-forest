@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/char_blue.png" type="Texture" id=2]
@@ -331,11 +331,31 @@ tracks/0/keys = {
 "values": [ 16, 17, 18 ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "wall_slide"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 85, 86 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 speed = 75
 jump_speed = -175
 player_gravity = 350
+wall_jump_speed = -180
+wall_gravity = 115
+wall_impulse_speed = 700
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -362,6 +382,7 @@ anims/landing = SubResource( 6 )
 anims/run = SubResource( 3 )
 anims/shield = SubResource( 12 )
 anims/teste = SubResource( 13 )
+anims/wall_slide = SubResource( 14 )
 
 [node name="LevelCamera" type="Camera2D" parent="."]
 current = true
@@ -374,5 +395,7 @@ drag_margin_v_enabled = true
 [node name="Collision" type="CollisionShape2D" parent="AttackArea"]
 
 [node name="WallRay" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 11.2, 0 )
 
 [connection signal="animation_finished" from="Animation" to="Texture" method="on_animation_finished"]

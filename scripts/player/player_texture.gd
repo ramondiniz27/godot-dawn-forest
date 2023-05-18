@@ -11,7 +11,7 @@ var crouching_off: bool = false
 func animate(direction: Vector2) -> void:
 	verify_position(direction)
 	
-	if player.attacking or player.defending or player.crouching:
+	if player.attacking or player.defending or player.crouching or player.next_to_wall():
 		action_behavior()
 	elif direction.y != 0:
 		vertical_behavior(direction)
@@ -26,12 +26,20 @@ func verify_position(direction: Vector2) -> void:
 	if direction.x > 0:
 		flip_h = false
 		suffix = "_right"
+		player.direction = -1
+		position = Vector2.ZERO
+		player.wall_ray.cast_to = Vector2(13.2,0)
 	elif direction.x < 0:
 		flip_h = true
 		suffix = "_left"
+		player.direction = 1
+		position = Vector2(-2, 0)
+		player.wall_ray.cast_to = Vector2(-13.2,0)
 
 func action_behavior() -> void:
-	if player.attacking == true and normal_attack:
+	if player.next_to_wall():
+		animation.play("wall_slide")
+	elif player.attacking == true and normal_attack:
 		animation.play("attack" + suffix)
 	elif player.defending and shield_off:
 		animation.play("shield")

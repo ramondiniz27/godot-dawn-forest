@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/char_blue.png" type="Texture" id=2]
 [ext_resource path="res://scripts/player/player_texture.gd" type="Script" id=3]
 [ext_resource path="res://assets/effect/light.png" type="Texture" id=4]
+[ext_resource path="res://scripts/player/player_stats.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 6, 15.5 )
@@ -465,5 +466,8 @@ energy = 0.8
 autoplay = "light_animation"
 anims/RESET = SubResource( 15 )
 anims/light_animation = SubResource( 16 )
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource( 5 )
 
 [connection signal="animation_finished" from="Animation" to="Texture" method="on_animation_finished"]

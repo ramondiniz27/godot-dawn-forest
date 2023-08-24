@@ -8,10 +8,13 @@ var normal_attack:bool = false
 var suffix: String = "_right"
 var shield_off: bool = false
 var crouching_off: bool = false
+
 func animate(direction: Vector2) -> void:
 	verify_position(direction)
 	
-	if player.attacking or player.defending or player.crouching or player.next_to_wall():
+	if player.on_hit or player.dead:
+		hit_behavior()
+	elif player.attacking or player.defending or player.crouching or player.next_to_wall():
 		action_behavior()
 	elif direction.y != 0:
 		vertical_behavior(direction)
@@ -63,7 +66,14 @@ func horizontal_behavior(direction: Vector2) -> void:
 	else:
 		animation.play("idle")
 		
-
+func hit_behavior() -> void:
+	player.set_physics_process(false)
+	
+	if(player.dead):
+		animation.player("dead")
+	elif player.on_hit:
+		animation.play("hit")	
+	pass
 
 func on_animation_finished(anim_name):
 	match anim_name:
@@ -76,3 +86,11 @@ func on_animation_finished(anim_name):
 		"attack_right":
 			normal_attack = false
 			player.attacking = false
+		"hit":
+			player.on_hit = false
+			player.set_physics_process(true)
+			
+			if player.defending:
+				player.set_physics_process("shield")
+			if player.crouching:
+				animation.play("crouch")

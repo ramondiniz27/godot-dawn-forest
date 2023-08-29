@@ -457,6 +457,7 @@ texture = ExtResource( 2 )
 hframes = 8
 vframes = 11
 script = ExtResource( 3 )
+attack_collision = NodePath("../AttackArea/Collision")
 animation = NodePath("../Animation")
 player = NodePath("..")
 
@@ -503,5 +504,18 @@ anims/light_animation = SubResource( 16 )
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 5 )
+player = NodePath("..")
+collision_area = NodePath("../CollisionArea")
+
+[node name="InverncibillityTimer" type="Timer" parent="Stats"]
+one_shot = true
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2( -1, 12.5 )
+shape = SubResource( 7 )
 
 [connection signal="animation_finished" from="Animation" to="Texture" method="on_animation_finished"]
+[connection signal="timeout" from="Stats/InverncibillityTimer" to="Stats" method="on_Inverncibillity_timer_timeout"]
+[connection signal="area_entered" from="CollisionArea" to="Stats" method="on_collision_area_area_entered"]

@@ -66,7 +66,6 @@ func actions_env():
 	attack()
 	crouch()
 	defense()
-	pass
 func attack() -> void:
 	var attack_condition:bool = not attacking and not crouching and not defending
 	if Input.is_action_just_pressed("attack") and attack_condition and is_on_floor():
@@ -82,6 +81,7 @@ func crouch() -> void:
 	elif not defending:
 		crouching = false
 		can_track_input = true
+		stats.shielding = false
 		player_sprite.crouching_off = true
 	
 	
@@ -89,10 +89,11 @@ func defense() -> void:
 	if Input.is_action_pressed("defense") and is_on_floor() and not crouching:
 		defending = true
 		can_track_input = false
-		stats.shielding = false
+		stats.shielding = true
 	elif not crouching:
 		defending = false
 		can_track_input = true
+		stats.shielding = false
 		player_sprite.shield_off = true
 	
 func gravity(delta: float) -> void:
@@ -114,3 +115,4 @@ func next_to_wall() -> bool:
 	else:
 		not_on_wall = true
 		return false
+	

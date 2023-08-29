@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/char_blue.png" type="Texture" id=2]
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AttackArea/Collision:shape")
+tracks/1/path = NodePath("AttackArea/Collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -33,10 +33,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ null ]
+"values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AttackArea/Collision:shape:extents")
+tracks/2/path = NodePath("AttackArea/Collision:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -45,10 +45,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 10, 10 ) ]
+"values": [ Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("AttackArea/Collision:position")
+tracks/3/path = NodePath("AttackArea/Collision:shape:extents")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -57,19 +57,19 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 10, 10 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("AttackArea/Collision:disabled")
+tracks/4/path = NodePath("AttackArea/Collision:shape")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ false ]
+"values": [  ]
 }
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -90,52 +90,52 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AttackArea/Collision:shape")
+tracks/1/path = NodePath("AttackArea/Collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.299119, 0.600957 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ SubResource( 9 ), SubResource( 9 ) ]
+"times": PoolRealArray( 0, 0.301838, 0.4, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ true, false, true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AttackArea/Collision:shape:extents")
+tracks/2/path = NodePath("AttackArea/Collision:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.299119, 0.600051 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 21.5, 8.5 ), Vector2( 16, 8.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AttackArea/Collision:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0.300025, 0.599144 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -6.5, 5.5 ), Vector2( -3, 10.5 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttackArea/Collision:shape:extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.299119, 0.600051 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21.5, 8.5 ), Vector2( 16, 8.5 ) ]
+}
 tracks/4/type = "value"
-tracks/4/path = NodePath("AttackArea/Collision:disabled")
+tracks/4/path = NodePath("AttackArea/Collision:shape")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.301838, 0.4, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false, true ]
+"times": PoolRealArray( 0.299119, 0.600957 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ SubResource( 9 ), SubResource( 9 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -154,52 +154,52 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AttackArea/Collision:shape")
+tracks/1/path = NodePath("AttackArea/Collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.299119, 0.600957 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ SubResource( 9 ), SubResource( 9 ) ]
+"times": PoolRealArray( 0, 0.301838, 0.4, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ true, false, true, false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AttackArea/Collision:shape:extents")
+tracks/2/path = NodePath("AttackArea/Collision:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.299119, 0.600051 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 21.5, 8.5 ), Vector2( 16, 8.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AttackArea/Collision:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0.300025, 0.599144 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 4.5, 5.5 ), Vector2( 1, 11 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AttackArea/Collision:shape:extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.299119, 0.600051 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21.5, 8.5 ), Vector2( 16, 8.5 ) ]
+}
 tracks/4/type = "value"
-tracks/4/path = NodePath("AttackArea/Collision:disabled")
+tracks/4/path = NodePath("AttackArea/Collision:shape")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.301838, 0.4, 0.6, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false, true ]
+"times": PoolRealArray( 0.299119, 0.600957 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ SubResource( 9 ), SubResource( 9 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -218,6 +218,22 @@ tracks/0/keys = {
 "values": [ 71, 72, 73 ]
 }
 
+[sub_resource type="Animation" id=17]
+resource_name = "dead"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 49, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58 ]
+}
+
 [sub_resource type="Animation" id=4]
 resource_name = "fall"
 length = 0.4
@@ -233,6 +249,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 33, 34, 35, 36 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 40, 41, 42 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -425,6 +457,7 @@ texture = ExtResource( 2 )
 hframes = 8
 vframes = 11
 script = ExtResource( 3 )
+attack_collision = NodePath("../AttackArea/Collision")
 animation = NodePath("../Animation")
 player = NodePath("..")
 
@@ -433,7 +466,9 @@ anims/RESET = SubResource( 1 )
 anims/attack_left = SubResource( 8 )
 anims/attack_right = SubResource( 10 )
 anims/crouch = SubResource( 11 )
+anims/dead = SubResource( 17 )
 anims/fall = SubResource( 4 )
+anims/hit = SubResource( 18 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 5 )
 anims/landing = SubResource( 6 )
@@ -469,5 +504,18 @@ anims/light_animation = SubResource( 16 )
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 5 )
+player = NodePath("..")
+collision_area = NodePath("../CollisionArea")
+
+[node name="InverncibillityTimer" type="Timer" parent="Stats"]
+one_shot = true
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2( -1, 12.5 )
+shape = SubResource( 7 )
 
 [connection signal="animation_finished" from="Animation" to="Texture" method="on_animation_finished"]
+[connection signal="timeout" from="Stats/InverncibillityTimer" to="Stats" method="on_Inverncibillity_timer_timeout"]
+[connection signal="area_entered" from="CollisionArea" to="Stats" method="on_collision_area_area_entered"]
